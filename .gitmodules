@@ -1,0 +1,3 @@
+[submodule "packages/nonoha-core"]
+	path = packages/nonoha-core
+	url = https://github.com/viestyle-dev/nonoha-core.git

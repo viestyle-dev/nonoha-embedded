@@ -1,0 +1,40 @@
+[project]
+name = "nonoha-embedded"
+version = "1.0.0"
+description = "Host-agnostic runtime that embeds nonoha node-graph processing in an application"
+readme = "README.md"
+authors = [{name = "VIE Inc."}]
+license = "AGPL-3.0-only"
+license-files = ["LICENSE", "COMMERCIAL-LICENSE.md", "COMMERCIAL-LICENSE_ja.md"]
+keywords = ["dataflow", "node-graph", "signal-processing", "realtime", "numpy", "embedded", "mobile"]
+requires-python = ">=3.11"
+dependencies = [
+    "nonoha-core",
+]
+
+[project.urls]
+Homepage = "https://github.com/viestyle-dev/nonoha-embedded"
+Repository = "https://github.com/viestyle-dev/nonoha-embedded"
+Issues = "https://github.com/viestyle-dev/nonoha-embedded/issues"
+
+# NOTE: This core is host-agnostic and Dart-free. The dart_bridge transport
+# (DartBridgeStrategy) lives in the Flutter host binding
+# (flutter_nonoha_embedded/python, package "nonoha-dartbridge"), not here.
+# A host drives this runtime via any TransportStrategy (e.g. the built-in
+# host-agnostic TcpServerStrategy).
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.uv.sources]
+nonoha-core = { path = "packages/nonoha-core", editable = false }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["nonoha_embedded"]

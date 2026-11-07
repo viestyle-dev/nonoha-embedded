@@ -1,0 +1,42 @@
+{
+  "properties": {},
+  "nodes": {
+    "Clock_1": {
+      "type": "Clock",
+      "properties": {"fs": 100.0, "pack_size": 10}
+    },
+    "WaveGenerator_2": {
+      "type": "WaveGenerator",
+      "properties": {"frequency": 1.0, "amplitude": 1.0, "offset": 0.0},
+      "property_groups": [
+        {"keys": ["frequency", "amplitude"], "dispatch_flags": [false, false]}
+      ]
+    },
+    "Greater_3": {
+      "type": "Greater",
+      "properties": {"in_types": "f32,f32"},
+      "inputs": {
+        "in": {"dispatch_flags": [true, false]}
+      }
+    },
+    "RealNumberValue_4": {
+      "type": "RealNumberValue",
+      "properties": {"value_type": "f32", "default": 0}
+    }
+  },
+  "inputs": {
+    "enabled": {"types": ["bool"]}
+  },
+  "outputs": {
+    "wave": {"types": ["f32"]},
+    "over": {"types": ["bool"]}
+  },
+  "edges": [
+    {"source": ".enabled", "target": "Clock_1.enabled"},
+    {"source": "Clock_1.times", "target": "WaveGenerator_2.times"},
+    {"source": "WaveGenerator_2.series", "target": ".wave"},
+    {"source": "WaveGenerator_2.series", "target": "Greater_3.in.0"},
+    {"source": "RealNumberValue_4.value", "target": "Greater_3.in.1"},
+    {"source": "Greater_3.out", "target": ".over"}
+  ]
+}

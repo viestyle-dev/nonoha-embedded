@@ -1,0 +1,19 @@
+{
+  "properties": {},
+  "nodes": {
+    "Abs_1": {
+      "type": "Abs",
+      "properties": {}
+    }
+  },
+  "inputs": {
+    "in": {"types": ["f32"]}
+  },
+  "outputs": {
+    "out": {"types": ["f32"]}
+  },
+  "edges": [
+    {"source": ".in", "target": "Abs_1.value"},
+    {"source": "Abs_1.value", "target": ".out"}
+  ]
+}

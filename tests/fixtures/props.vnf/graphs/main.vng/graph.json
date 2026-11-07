@@ -1,0 +1,16 @@
+{
+  "properties": {"gain_enabled": true},
+  "nodes": {
+    "GraphPropertiesChanged_1": {
+      "type": "GraphPropertiesChanged",
+      "properties": {"selector": "gain_enabled", "value_type_list": "i8"}
+    }
+  },
+  "inputs": {},
+  "outputs": {
+    "enabled": {"types": ["i8"]}
+  },
+  "edges": [
+    {"source": "GraphPropertiesChanged_1.properties", "target": ".enabled"}
+  ]
+}

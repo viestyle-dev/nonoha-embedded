@@ -1,0 +1,15 @@
+{
+  "nodes": {
+    "RealNumberValue_1": {
+      "type": "RealNumberValue",
+      "properties": {"value_type": "f32", "default": 1.5}
+    }
+  },
+  "outputs": {
+    "out": {"types": ["f32"]}
+  },
+  "edges": [
+    {"source": "RealNumberValue_1.value", "target": ".out"},
+    {"source": "NoSuchNode_9.value", "target": ".out"}
+  ]
+}

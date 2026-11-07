@@ -1,0 +1,19 @@
+{
+  "properties": {},
+  "nodes": {
+    "GraphProxy_1": {
+      "type": "GraphProxy",
+      "properties": {"graph_name": "source"}
+    }
+  },
+  "inputs": {
+    "x": {"types": ["f32"]}
+  },
+  "outputs": {
+    "y": {"types": ["f32"]}
+  },
+  "edges": [
+    {"source": ".x", "target": "GraphProxy_1.in"},
+    {"source": "GraphProxy_1.out", "target": ".y"}
+  ]
+}
